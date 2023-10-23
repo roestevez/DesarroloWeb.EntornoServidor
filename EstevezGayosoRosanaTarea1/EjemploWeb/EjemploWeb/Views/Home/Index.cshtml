@@ -1,0 +1,278 @@
+﻿@{
+	ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+	<h1 class="display-4">CONSOLA WEB</h1>
+	<p>Aquí programaremos nuestros ejercicios de consola, pero en la web.</p>
+</div>
+
+<p>
+	<!-- INICIO CONSOLA WEB-->
+	<h2>Ejercicio 1: Notas</h2>
+
+<p>
+		@{
+			//declarar variables
+			Random rnd = new Random();
+			int numeroNotas = rnd.Next(5, 11);
+			int[] notas = new int[numeroNotas];
+			int suma = 0;
+			float media;
+
+
+			//notas aleatorias
+			for (int i = 0; i < numeroNotas; i++)
+			{
+				notas[i] = rnd.Next(0, 11);
+
+			}
+
+			//printar notas
+	<p> Notas: </p>
+			foreach (int nota in notas)
+			{
+				<p>Nota: @nota</p>
+				
+
+		
+
+			}
+
+			//nota media
+	<p>nota media es:</p>
+
+			foreach (int nota in notas)
+			{
+				suma += nota;
+			}
+			media = suma / numeroNotas;
+	<p>@media</p>
+
+			//buscar la nota mas baja y nota mas alta
+	<p> nota mas baja es :</p>
+			Array.Sort(notas);
+			int notaMasBaja = notas[0];
+			int notaMasAlta = notas[notas.Length - 1];
+	<p>@notaMasBaja</p>
+	<p> nota mas alta es : </p>
+	<p>@notaMasAlta</p>
+
+
+
+		}
+
+	</p>
+
+<h2>Ejercicio 2: Array strings</h2>
+<p>
+	Muestro una lista de string aleatorios
+		@{
+			//declaracion variables
+			Random aleatorio = new Random();
+			string[] palabrasAleatorias = new string[5];
+
+
+
+			//generar strings aleatoriamente
+			for (int i = 0; i < palabrasAleatorias.Length; i++)
+			{
+				int longitudPalabra = aleatorio.Next(1, 21); // longitud aleatoria entre 1 y 20 caracteres
+				string palabra = "";
+
+				for (int j = 0; j < longitudPalabra; j++)
+				{
+					char caracter = (char)aleatorio.Next('A', 'Z' + 1); // caracter aleatorio entre 'A' y 'Z'
+					palabra += caracter;
+				}
+
+				palabrasAleatorias[i] = palabra;
+			}
+
+			//mostrar por pantalla
+		<ul>
+				@foreach (string palabra in palabrasAleatorias)
+				{
+				<li>@palabra</li>
+				}
+		</ul>
+
+			//copiar matriz
+			string[] palabrasAleatoriasCopia = new string[palabrasAleatorias.Length];
+			Array.Copy(palabrasAleatorias, palabrasAleatoriasCopia, palabrasAleatorias.Length);
+
+			//reverse
+			Array.Reverse(palabrasAleatoriasCopia);
+			<p>... y muestro el mismo array de forma inversa </p>
+			//mostrar por pantalla reverse
+		<ul>
+				@foreach (string palabra in palabrasAleatoriasCopia)
+				{
+				<li>@palabra</li>
+				}
+		</ul>
+		}
+
+</p>
+<h2>Ejercicio 3: Array aleatorio</h2>
+<p>
+	Muestro matriz de numeros aleatoria y ordenada:
+		@{
+			//declaracion de variables
+			Random random = new Random();
+			int longuitudMatriz = random.Next(1, 21);
+			int[] numerosAleatorios = new int[longuitudMatriz];
+
+			//rellenar matriz con numeros aleatorios
+			for (int i = 0; i < longuitudMatriz; i++)
+			{
+				numerosAleatorios[i] = random.Next(0, 101);
+			}
+
+			//ordenar de menor a mayor
+			Array.Sort(numerosAleatorios);
+
+			//printar matriz con foreach
+			
+			
+			foreach (int numeros in numerosAleatorios)
+			{
+			
+			
+				<p>@numeros</p>
+			    
+			}
+		
+		
+		}
+		
+
+</p>
+<br />
+
+<h2>Ejercicio 4: La Baraja</h2>
+<br />
+	@{
+		string[] palos = { "Oro", "Copas", "Espadas", "Bastos" };
+
+	}
+<h4>muestro la baraja completa</h4>
+	@{
+		mostrarBarajaCompleta(palos);
+	}
+	
+<br />
+<h4>se buscan cartas y te muestro su imagen </h4>
+<br />
+
+	@{
+		mostrarCarta("1Bastos");
+		mostrarCarta("1Espadas");
+		mostrarCarta("1Oro");
+		mostrarCarta("1Copas");
+
+
+	}
+	<br />
+
+
+<h4>
+	muestro una carta aleatoria</h4>
+	<br />
+
+		@{
+			cartaAleatoria();
+
+		}
+
+
+
+	<!-- FIN CONSOLA WEB-->
+
+
+
+<!--metodos-->
+	@{
+		//metodo mostrar baraja completa
+		void mostrarBarajaCompleta(string[] palos)
+		{
+
+
+		<table border="1">
+
+
+				@foreach (string palo in palos)
+				{
+				<tr>
+					<td>@palo</td>
+					<td>
+
+							@for (int i = 1; i < 11; i++)
+							{
+
+								string foto = "/img/" + i.ToString() + palo + ".jpg";
+							<img src="@foto" />
+
+							}
+
+
+
+
+
+					</td>
+				</tr>
+				}
+		</table>
+
+
+
+
+
+		}
+
+	}
+	@{
+		//metodo mostrarcarta por nombre
+		void mostrarCarta(string carta1)
+		{
+			string rutaCarta = "/img/" + carta1 + ".jpg";
+		<img src="@rutaCarta" />
+		<p>@carta1</p>
+
+
+
+
+		}
+	}
+	@{
+		//metodo carta aleatoria
+		void cartaAleatoria()
+		{
+			List<string> baraja = new List<string>();
+
+			foreach (var palo in palos)
+			{
+				for (int i = 1; i < 11; i++)
+				{
+					string carta = i + palo;
+					baraja.Add(carta);
+				}
+			}
+
+			Random aleatorio = new Random();
+			int indiceAleatorio = aleatorio.Next(baraja.Count);
+			string cartaAleatoria = baraja[indiceAleatorio];
+			string rutacarta2 = "/img/" + cartaAleatoria + ".jpg";
+		<img src="@rutacarta2" />
+
+
+
+		<p>@cartaAleatoria</p>
+
+
+
+
+		}
+	}
+
+

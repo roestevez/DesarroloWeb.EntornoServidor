@@ -1,0 +1,37 @@
+html {
+  font-size: 14px;
+  
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-color: #C8E4B2;
+    
+    
+}
+table {
+    background-color: #9ED2BE;
+    border-radius: 30px;
+    margin:5rem;
+    border 
+    
+}
+h2 {
+    color:# FFD9B7;
+}
+
+td,th{
+    padding: 0.5rem;
+    white-space:nowrap;
+}
