@@ -1,46 +1,10 @@
-﻿
-
-
-
-namespace EstevezGayosoRosanaTarea2.Models
+﻿namespace EstevezGayosoRosanaTarea2.Models
 {
     //Creo clase modelo que contiene todas las clases con datos necesarios para mi curriculum
     public class CurriculmViewModel
 
     {
-        //clase datos personales
-        public class PersonalInformation
-        {
-            public string Name { get; set; }
-           
-            public string Address { get; set; }   
-            public string Email { get; set; }
-            public string TelephoneNumber { get; set; } 
-            
-            
-        }
-        //clase experiencia laboral
-        public class Job
-        {
-            public string CompanyName { get; set; }
-            public string Position { get; set; }
-            public DateTime StartDate { get; set; }
-            public DateTime? EndDate { get; set; }
-            public string City { get; set; }
-            public string JobDescription { get; set; }
 
-
-        }
-        //clase Educacion
-        public class Education
-        {
-            public string SchoolName { get; set; }
-            public string Degree { get; set; }
-            public DateTime? DegreeDate { get; set; }
-            public string City { get; set; }
-
-        }
-        //clase perfil profesional
 
         //inicializo aqui listas con los datos de cada clase
         //lista experiencia laboral
@@ -57,17 +21,52 @@ namespace EstevezGayosoRosanaTarea2.Models
                 new Education{SchoolName="Montecastelo",Degree="BTEC Level 3 equivalent Web-Based App Developer", DegreeDate= null,City="Vigo"},
                 new Education{SchoolName="Colegio San Jose ",Degree="BTEC Level 3 equivalent Social Intregation", DegreeDate= new DateTime(2006,6,1),City="Vigo"}
             };
-        //lista informacion personal
-        public List<PersonalInformation >Personal = new List<PersonalInformation>
-        { 
-            new PersonalInformation{Name="Rosana Estevez", Address="E11 4BQ - London",TelephoneNumber="+447733631969", Email="restevezgayoso@outlook.com"}
-        };
+
+
+        //Objeto personalinformation
+
+        public PersonalInformation personalInformation = new PersonalInformation { Name = "Rosana Estevez", Address = "E11 4BQ - London", TelephoneNumber = "+447733631969", Email = "restevezgayoso@outlook.com" };
+
+
 
 
 
 
 
     }
+    //clase datos personales
+    public class PersonalInformation
+    {
+        public string Name { get; set; }
+
+        public string Address { get; set; }
+        public string Email { get; set; }
+        public string TelephoneNumber { get; set; }
+
+
+    }
+    //clase experiencia laboral
+    public class Job
+    {
+        public string CompanyName { get; set; }
+        public string Position { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime? EndDate { get; set; }
+        public string City { get; set; }
+        public string JobDescription { get; set; }
+
+
+    }
+    //clase Educacion
+    public class Education
+    {
+        public string SchoolName { get; set; }
+        public string Degree { get; set; }
+        public DateTime? DegreeDate { get; set; }
+        public string City { get; set; }
+
+    }
+    //clase perfil profesional
 
 
 }

@@ -1,4 +1,4 @@
-﻿
+﻿@model CurriculmViewModel
 <html>
     <head>
     <link rel="stylesheet"
@@ -12,13 +12,13 @@
 
         </div>
         
-        @foreach(var personal in Model.Personal){
+       
            
-            <h1 class="nombre"> @personal.Name | Web Developer</h1>
-            <h5 class="direccion">@personal.Address </h5>
-            <h5 class="email">@personal.Email</h5>
-            <h5 class="ntelefono">@personal.TelephoneNumber<i class="fa-thin fa-mobile-retro"></i></h5>
-        }
+            <h1 class="nombre"> @Model.personalInformation.Name | Web Developer</h1>
+            <h5 class="direccion">@Model.personalInformation.Address </h5>
+            <h5 class="email">@Model.personalInformation.Email</h5>
+            <h5 class="ntelefono">@Model.personalInformation.TelephoneNumber<i class="fa-thin fa-mobile-retro"></i></h5>
+        
         
 
     </div>
