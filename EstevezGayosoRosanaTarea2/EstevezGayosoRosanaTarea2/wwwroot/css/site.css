@@ -1,0 +1,82 @@
+html {
+  font-size: 14px;
+
+  
+}
+h1,h2,h3,h4,h5{
+    font-family:Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+img{
+    height:300px;
+    
+    border-radius:50%;
+    padding:20px;
+
+}
+.jobs{
+    
+    background-color:aliceblue;
+}
+.education{
+    background-color:azure;
+
+}
+.encabezado {
+    
+    height: 300px;
+    background-color: #113946;
+}
+
+.nombre {
+    position: absolute;
+    right: 20%;
+    top: 10%;
+    color: #FFF2D8;
+    padding:50px;
+}
+.direccion{
+    position: absolute;
+    right: 20%;
+    top: 15%;
+    color: #FFF2D8;
+    padding: 50px;
+}
+.email {
+    position: absolute;
+    right: 20%;
+    top: 18%;
+    color: #FFF2D8;
+    padding: 50px;
+}
+.fa-thin fa-mobile-retro {
+    position: absolute;
+    right: 20%;
+    top: 21%;
+    color: #FFF2D8;
+    padding: 50px;
+}
+
+}
+
+.ntelefono {
+    position: absolute;
+    right: 20%;
+    top: 21%;
+    color: #FFF2D8;
+    padding: 50px;
+}

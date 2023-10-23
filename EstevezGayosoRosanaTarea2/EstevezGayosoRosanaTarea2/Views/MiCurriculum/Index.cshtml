@@ -1,0 +1,48 @@
+﻿
+<html>
+    <head>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    </head>
+
+<header>
+    <div class=" encabezado ">
+        <div class="foto">
+            <img src="img/fototarea.jpg" />
+
+        </div>
+        
+        @foreach(var personal in Model.Personal){
+           
+            <h1 class="nombre"> @personal.Name | Web Developer</h1>
+            <h5 class="direccion">@personal.Address </h5>
+            <h5 class="email">@personal.Email</h5>
+            <h5 class="ntelefono">@personal.TelephoneNumber<i class="fa-thin fa-mobile-retro"></i></h5>
+        }
+        
+
+    </div>
+</header>
+
+
+<h3>Work Experience</h3>
+@foreach (var job in Model.Jobs){
+<div class="jobs">
+    <h5>@job.CompanyName <br></h5>
+
+    <p>@job.Position - @job.StartDate.ToShortDateString() - @(job.EndDate?.ToShortDateString() ?? "Present"). @job.City  </p>
+    <ul>
+        <li>@job.JobDescription</li>
+    </ul>
+</div>
+    }
+<h3>Education</h3>
+@foreach(var education in Model.Educations){
+<div class="education">
+    <h5>@education.SchoolName</h5>
+    <p>@education.Degree - @(education.DegreeDate?.ToShortDateString() ?? "Ongoing"). @education.City</p>
+</div>
+    }
+
+</html>
+
