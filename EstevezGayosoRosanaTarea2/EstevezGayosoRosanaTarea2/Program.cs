@@ -20,6 +20,8 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+//he modificado el routing para que la pagina que se abra por defecto sea MiCurriculum index.
+//si se pone en la url https://localhost:7138/MiCurriculum tambien la abre correctamente
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=MiCurriculum}/{action=Index}/{id?}");

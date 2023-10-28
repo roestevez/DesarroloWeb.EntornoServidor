@@ -1,82 +1,225 @@
-html {
-  font-size: 14px;
 
-  
-}
-h1,h2,h3,h4,h5{
-    font-family:Cambria, Cochin, Georgia, Times, Times New Roman, serif;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+/*responsive usando grid y flex, aun no se como se usa bootstrap
+    
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
-}
-
-body {
-  margin-bottom: 60px;
-}
-img{
-    height:300px;
-    
-    border-radius:50%;
-    padding:20px;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 
 }
-.jobs{
-    
-    background-color:aliceblue;
-}
-.education{
-    background-color:azure;
-
-}
-.encabezado {
-    
-    height: 300px;
-    background-color: #113946;
+.main {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    min-height: 1000px;
+    margin: 70px;
+    background: white;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    box-shadow: 0 35px 55px rgba(0,0,0,0.5);
 }
 
-.nombre {
-    position: absolute;
-    right: 20%;
-    top: 10%;
-    color: #FFF2D8;
-    padding:50px;
-}
-.direccion{
-    position: absolute;
-    right: 20%;
-    top: 15%;
-    color: #FFF2D8;
-    padding: 50px;
-}
-.email {
-    position: absolute;
-    right: 20%;
-    top: 18%;
-    color: #FFF2D8;
-    padding: 50px;
-}
-.fa-thin fa-mobile-retro {
-    position: absolute;
-    right: 20%;
-    top: 21%;
-    color: #FFF2D8;
-    padding: 50px;
+    .main .left-side {
+        position: relative;
+        background: #1F6E8C;
+        padding: 40px;
+    }
+
+
+
+.profile-txt {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 3px solid rgba(255,255,255,0.2);
 }
 
+    .profile-txt .image {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+        .profile-txt .image img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+
+.profile-txt h2 {
+        color: white;
+        font-size: 1.5em;
+        margin-top: 20px;
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: 600;
+        line-height: 1.4em;
+    }
+
+        .profile-txt h2 span {
+            font-size: 0.8em;
+            font-weight: 200;
+            text-align: center;
+        }
+
+    .profile-txt h5 {
+        color: white;
+        font-size: 0.9em;
+        text-align: center;
+    }
+
+.profesional-profile {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+    padding-top: 30px;
+    border-bottom: 3px solid rgba(255,255,255,0.2);
 }
 
-.ntelefono {
-    position: absolute;
-    right: 20%;
-    top: 21%;
-    color: #FFF2D8;
-    padding: 50px;
+    .profesional-profile h5 {
+        color: white;
+        font-size: 1.2em;
+        text-align: center;
+    }
+
+    .profesional-profile ul {
+        position: relative;
+    }
+
+        .profesional-profile ul li {
+            position: relative;
+            color: white;
+            font-size: 0.9em;
+            padding: 10px;
+            margin-left: -15px;
+            list-style: none;
+        }
+
+.interests {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: 20px;
+    padding-top: 50px;
+    border-bottom: 3px solid rgba(255,255,255,0.2);
+}
+
+    .interests h5 {
+        color: white;
+        font-size: 1.2em;
+        padding-left: 10%;
+    }
+
+    .interests ul {
+        position: relative;
+    }
+
+        .interests ul li {
+            position: relative;
+            color: white;
+            font-size: 0.9em;
+            padding: 10px;
+            margin-left: -15px;
+            list-style: none;
+        }
+
+.main .right-side {
+    position: relative;
+    background: #84A7A1;
+    padding: 40px;
+}
+
+.jobs {
+    border-top: 3px solid rgba(255,255,255,0.2);
+}
+
+.education {
+    border-top: 3px solid rgba(255,255,255,0.2);
+}
+
+.languages {
+    border-top: 3px solid rgba(255,255,255,0.2);
+}
+
+    .languages .percentaje {
+        position: relative;
+        width: 100%;
+        height: 6px;
+        background: white;
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .languages ul li {
+        position: relative;
+        font-size: 0.9em;
+        padding: 5px;
+        margin-left: -15px;
+        list-style: none;
+    }
+
+        .languages ul li .percentaje div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: #1F6E8C;
+        }
+
+
+
+@media (max-width: 1000px) {
+    .main {
+        margin: 10px;
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .main {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-txt .image {
+        width: 100px;
+        height: 100px;
+    }
+
+    h1, h2, h3, h4, h5 {
+        font-size: 0.8em;
+    }
+    .main .left-side, .main .right-side {
+        padding: 10px;
+    }
+
+    .languages ul li {
+        font-size: 0.8em;
+    }
+
+    .languages .percentaje {
+        grid-template-columns: 1fr; /* Cambia a una sola columna */
+    }
 }

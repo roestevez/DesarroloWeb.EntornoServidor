@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EstevezGayosoRosanaTarea2.Controllers
 {
+    //creo controlador MiCurriculum que devuelve la vista que recibe del modelo
     public class MiCurriculumController : Controller
     {
         public IActionResult Index()
