@@ -1,0 +1,51 @@
+﻿@model EstevezGayosoRosanaTarea3.Models.LoginViewModel
+
+@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+	<title>Logueate</title>
+	<link href="~/css/StyleSheet.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    <h4>Login</h4>
+	<hr />
+    <form asp-action="logueate">
+		<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+		<div class="imgcontainer">
+			<img src="img/avatar.jpg" alt="Avatar" class="avatar">
+		</div>
+		<div class="form-login">
+            <label asp-for="Username"></label>
+			<input asp-for="Username" />
+			<span asp-validation-for="Username"></span>
+            <label asp-for="Password"></label>
+			<input asp-for="Password" />
+			<span asp-validation-for="Password"></span>
+            <input type="submit" value="Login" class="inicia-sesion" />
+			<label>
+				<input type="checkbox" checked="checked" name="remember"> Remember me
+			</label>
+		</div>
+		<div class="form-login" style="background-color:#f1f1f1">
+			<button type="button" class="cancelbtn">Cancel</button>
+			<span class="psw">Forgot <a href="#">password?</a></span>
+		</div>
+
+	</form>
+
+
+
+
+	@section Scripts {
+		@{
+			await Html.RenderPartialAsync("_ValidationScriptsPartial");
+		}
+	}
+	</body>
+	</html>

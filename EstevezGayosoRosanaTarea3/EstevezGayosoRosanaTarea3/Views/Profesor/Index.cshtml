@@ -1,0 +1,62 @@
+﻿@model IEnumerable<EstevezGayosoRosanaTarea3.Database.Models.Profesor>
+
+@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<title>Index</title>
+</head>
+<body>
+	<p>
+		<a asp-action="Create">Create New</a>
+	</p>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>
+					@Html.DisplayNameFor(model => model.ProfesorId)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.Nombre)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.Edad)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.Materia)
+				</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>
+						@Html.DisplayFor(modelItem => item.ProfesorId)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Nombre)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Edad)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Materia)
+					</td>
+					<td>
+						<a asp-action="Edit" asp-route-id="@item.ProfesorId">Edit</a> |
+						@Html.ActionLink("Detail", "VerProfesor", new { item.ProfesorId})|
+						<a asp-action="Delete" asp-route-id="@item.ProfesorId">Delete</a>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</body>
+</html>

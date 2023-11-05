@@ -1,0 +1,62 @@
+﻿@model IEnumerable<EstevezGayosoRosanaTarea3.Database.Models.Estudiante>
+
+@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<title>Index</title>
+	<link href="~/css/tabla.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+	
+	<table class="tabla">
+
+		<thead>
+			<tr>
+				<th>
+					@Html.DisplayNameFor(model => model.EstudianteId)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.Nombre)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.Edad)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.Curso)
+				</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>
+						@Html.DisplayFor(modelItem => item.EstudianteId)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Nombre)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Edad)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Curso)
+					</td>
+					<td>
+						
+						@Html.ActionLink("Detail", "VerEstudiante", new { item.EstudianteId})|
+						
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</body>
+</html>

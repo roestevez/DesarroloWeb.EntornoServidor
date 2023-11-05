@@ -1,0 +1,332 @@
+
+/*responsive usando grid y flex, aun no se como se usa bootstrap
+    
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+}
+
+html {
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+}
+.table td th {
+    border: solid 2px black;
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    min-height: 1000px;
+    margin: 70px;
+    background: white;
+    
+    box-shadow: 0 35px 55px rgba(0,0,0,0.5);
+}
+.main {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    min-height: 1000px;
+    margin: 70px;
+    background: white;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    box-shadow: 0 35px 55px rgba(0,0,0,0.5);
+}
+
+    .main .left-side {
+        position: relative;
+        background: #1F6E8C;
+        padding: 40px;
+    }
+
+
+
+.profile-txt {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 3px solid rgba(255,255,255,0.2);
+}
+
+    .profile-txt .image {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+        .profile-txt .image img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+
+.profile-txt h2 {
+        color: white;
+        font-size: 1.5em;
+        margin-top: 20px;
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: 600;
+        line-height: 1.4em;
+    }
+
+        .profile-txt h2 span {
+            font-size: 0.8em;
+            font-weight: 200;
+            text-align: center;
+        }
+
+    .profile-txt h5 {
+        color: white;
+        font-size: 0.9em;
+        text-align: center;
+    }
+
+.profesional-profile {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+    padding-top: 30px;
+    border-bottom: 3px solid rgba(255,255,255,0.2);
+}
+
+    .profesional-profile h5 {
+        color: white;
+        font-size: 1.2em;
+        text-align: center;
+    }
+
+    .profesional-profile ul {
+        position: relative;
+    }
+
+        .profesional-profile ul li {
+            position: relative;
+            color: white;
+            font-size: 0.9em;
+            padding: 10px;
+            margin-left: -15px;
+            list-style: none;
+        }
+
+.interests {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: 20px;
+    padding-top: 50px;
+    border-bottom: 3px solid rgba(255,255,255,0.2);
+}
+
+    .interests h5 {
+        color: white;
+        font-size: 1.2em;
+        padding-left: 10%;
+    }
+
+    .interests ul {
+        position: relative;
+    }
+
+        .interests ul li {
+            position: relative;
+            color: white;
+            font-size: 0.9em;
+            padding: 10px;
+            margin-left: -15px;
+            list-style: none;
+        }
+
+.main .right-side {
+    position: relative;
+    background: #84A7A1;
+    padding: 40px;
+}
+
+.jobs {
+    border-top: 3px solid rgba(255,255,255,0.2);
+}
+
+.education {
+    border-top: 3px solid rgba(255,255,255,0.2);
+}
+
+.languages {
+    border-top: 3px solid rgba(255,255,255,0.2);
+}
+
+    .languages .percentaje {
+        position: relative;
+        width: 100%;
+        height: 6px;
+        background: white;
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .languages ul li {
+        position: relative;
+        font-size: 0.9em;
+        padding: 5px;
+        margin-left: -15px;
+        list-style: none;
+    }
+
+        .languages ul li .percentaje div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: #1F6E8C;
+        }
+
+
+
+@media (max-width: 1000px) {
+    .main {
+        margin: 10px;
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .main {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-txt .image {
+        width: 100px;
+        height: 100px;
+    }
+
+    h1, h2, h3, h4,h5 {
+        font-size: 0.8em;
+    }
+    .main .left-side, .main .right-side {
+        padding: 10px;
+    }
+
+    .languages ul li {
+        font-size: 0.8em;
+    }
+
+    .languages .percentaje {
+        grid-template-columns: 1fr; 
+    }
+}
+@media (max-width: 330px) {
+    .main {
+        grid-template-columns: 1fr; 
+        margin: 10px;
+    }
+
+    .profile-txt .image {
+        width: 80px;
+        height: 80px;
+    }
+
+    h1,h2, h3, h4, h5 {
+        font-size: 0.7em;
+    }
+
+    .main .left-side, .main .right-side {
+        padding: 5px;
+    }
+
+    .languages ul li {
+        font-size: 0.7em;
+    }
+    form {
+        border: 3px solid #f1f1f1;
+    }
+
+    /* Full-width inputs */
+    input[type=text], input[type=password] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+
+    /* Set a style for all buttons */
+    button {
+        background-color: #04AA6D;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+    }
+
+        /* Add a hover effect for buttons */
+        button:hover {
+            opacity: 0.8;
+        }
+
+    /* Extra style for the cancel button (red) */
+    .cancelbtn {
+        width: auto;
+        padding: 10px 18px;
+        background-color: #f44336;
+    }
+
+    /* Center the avatar image inside this container */
+    .imgcontainer {
+        text-align: center;
+        margin: 24px 0 12px 0;
+    }
+
+    /* Avatar image */
+    img.avatar {
+        width: 40%;
+        border-radius: 50%;
+    }
+
+    /* Add padding to containers */
+    .container {
+        padding: 16px;
+    }
+
+    /* The "Forgot password" text */
+    span.psw {
+        float: right;
+        padding-top: 16px;
+    }
+
+    /* Change styles for span and cancel button on extra small screens */
+    @media screen and (max-width: 300px) {
+        span.psw {
+            display: block;
+            float: none;
+        }
+
+        .cancelbtn {
+            width: 100%;
+        }
+    }
+
+    
+}

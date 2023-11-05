@@ -1,0 +1,135 @@
+@model CurriculmViewModel
+@*He creado una nueva vista-carpeta MiCurriculum con un Index en su interior*@
+<html>
+<head>
+	@*descargo libreria fontawesome para usar iconos*@
+	<link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css" />
+
+
+</head>
+
+
+<div class="main">
+	@*organizo la pagina en dos espacios izquierdo y derecho: en el izquierdo van los datos personales, una carta de presentacion y intereses.
+	Al derecho experiencia profesional y estudios*@
+	<div class="left-side">
+		<div class="profile-txt">
+			<div class="image">
+				<img src="@Model.personalInformation.RutaImage" />
+			</div>
+			<h2>@Model.personalInformation.Name <br /> <span>Web Developer</span> </h2>
+			<h5><i class="fa-solid fa-location-dot"></i>@Model.personalInformation.Address </h5>
+			<h5><i class="fa-solid fa-envelope"></i> @Model.personalInformation.Email</h5>
+			<h5><i class="fa-solid fa-phone"> </i>@Model.personalInformation.TelephoneNumber </h5>
+		</div>
+		<div class="profesional-profile">
+			<h5>Profesional Profile</h5>
+			<ul>
+				@*muestro el perfil profesional con un bucle*@
+				@foreach (var profile in Model.profesionalProfile)
+				{
+					<li>@profile</li>
+				}
+			</ul>
+
+
+		</div>
+		<div class="interests">
+			<h5>Interests</h5>
+			<ul>
+				@*muestro con un for dos listas, la de intereses y otra con la ruta al icono correspondiente*@
+				@for (int i = 0; i < Model.interests.Count(); i++)
+				{
+					<li><i class="@Model.logos[i]"></i>@Model.interests[i]</li>
+				}
+
+			</ul>
+
+
+		</div>
+	</div>
+	<div class="right-side">
+		<h3>Work Experience</h3>
+		<div class="jobs">
+			@*uso de bucle para mostrar trabajos*@
+			@foreach (var job in Model.Jobs)
+			{
+
+				<h5>@job.CompanyName <br></h5>
+
+				<p>@job.Position - @job.StartDate.ToShortDateString() - @(job.EndDate?.ToShortDateString() ?? "Present"). @job.City  </p>
+				<ul>
+					<li>@job.JobDescription</li>
+				</ul>
+
+			}
+		</div>
+		<h3>Education</h3>
+		<div class="education">
+			@*uso de bucles para mostrar los estudios*@
+			@foreach (var education in Model.Educations)
+			{
+
+				<h5>@education.SchoolName</h5>
+				<p>@education.Degree - @(education.DegreeDate?.ToShortDateString() ?? "Ongoing"). @education.City</p>
+
+			}
+		</div>
+		<h3>Languages</h3>
+		<div class="languages">
+			<ul>
+
+				@*uso de bucle para recorrer los lenguajes y if para que si coincide el lenguaje rellene el div en el porcentaje correspondiente*@
+				@foreach (var languages in Model.Languages)
+				{
+					<li>
+						<h5>@languages.LanguageName</h5>
+						<p>@languages.LanguageLevel</p>
+						@if (languages.LanguageName == "English")
+						{
+							<span class="percentaje">
+								<div style="width:85%"></div>
+
+							</span>
+
+						}
+						else if (languages.LanguageName == "Spanish")
+						{
+							<span class="percentaje">
+								<div style="width:100%"></div>
+
+							</span>
+
+						}
+						else if (languages.LanguageName == "Galician")
+						{
+							<span class="percentaje">
+								<div style="width:100%"></div>
+
+							</span>
+						}
+						else if (languages.LanguageName == "Portuguese")
+						{
+							<span class="percentaje">
+								<div style="width:35%"></div>
+
+							</span>
+						}
+					</li>
+				}
+			</ul>
+		</div>
+
+	</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+</html>
