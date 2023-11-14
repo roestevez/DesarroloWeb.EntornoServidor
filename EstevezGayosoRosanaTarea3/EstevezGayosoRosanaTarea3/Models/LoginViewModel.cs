@@ -2,6 +2,7 @@
 
 namespace EstevezGayosoRosanaTarea3.Models
 {
+    
     public class LoginViewModel
     {
         [Required]

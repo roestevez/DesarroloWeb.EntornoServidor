@@ -1,16 +1,14 @@
 ﻿@model IEnumerable<EstevezGayosoRosanaTarea3.Database.Models.Estudiante>
-
 @{
-	Layout = null;
+	ViewData["Title"] = "Estudiante";
 }
-
 <!DOCTYPE html>
 
 <html>
 <head>
 	<meta name="viewport" content="width=device-width" />
 	<title>Index</title>
-	<link href="~/css/tabla.css" type="text/css" rel="stylesheet" />
+	<link href="~/css/tablaStyle.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
 	
@@ -51,7 +49,7 @@
 					</td>
 					<td>
 						
-						@Html.ActionLink("Detail", "VerEstudiante", new { item.EstudianteId})|
+						@Html.ActionLink("Detail", "VerEstudiante", new { item.EstudianteId})
 						
 					</td>
 				</tr>

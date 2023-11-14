@@ -1,0 +1,52 @@
+﻿@model IEnumerable<EstevezGayosoRosanaTarea3.Database.Models.Asignatura>
+
+@{
+	ViewData["Title"] = "View";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<title>Index</title>
+	<link href="~/css/tabla.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+
+	<h1>VerAsignatura</h1>
+
+
+
+	<table class="tabla">
+		<thead>
+			<tr>
+				<th>
+					@Html.DisplayNameFor(model => model.Nombre)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.Descripcion)
+				</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>
+						@Html.DisplayFor(modelItem => item.Nombre)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Descripcion)
+					</td>
+
+				</tr>
+				<div>
+
+					<a asp-action="Index">Back to List</a>
+				</div>
+			}
+		</tbody>
+	</table>
+</body>
+</html>

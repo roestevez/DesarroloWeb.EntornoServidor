@@ -8,38 +8,38 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
+	<meta name="viewport" content="width=device-width" />
 	<title>Logueate</title>
-	<link href="~/css/StyleSheet.css" type="text/css" rel="stylesheet" />
+	<link href="~/css/loginStyle.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
-    <h4>Login</h4>
-	<hr />
-    <form asp-action="logueate">
+	
+	<form asp-action="logueate">
+		<h2>Logueate!</h2>
 		<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 		<div class="imgcontainer">
-			<img src="img/avatar.jpg" alt="Avatar" class="avatar">
+			<img src="~/img/avatar.jpg" alt="Avatar" class="avatar">
 		</div>
 		<div class="form-login">
-            <label asp-for="Username"></label>
-			<input asp-for="Username" />
+			<label asp-for="Username"></label>
+			<input asp-for="Username" placeholder="Username"/>
 			<span asp-validation-for="Username"></span>
-            <label asp-for="Password"></label>
-			<input asp-for="Password" />
+			<label asp-for="Password"></label>
+			<input asp-for="Password" placeholder="Password" type="password" />
 			<span asp-validation-for="Password"></span>
-            <input type="submit" value="Login" class="inicia-sesion" />
+			<input type="submit" value="Login" class="inicia-sesion" />
 			<label>
 				<input type="checkbox" checked="checked" name="remember"> Remember me
 			</label>
 		</div>
-		<div class="form-login" style="background-color:#f1f1f1">
-			<button type="button" class="cancelbtn">Cancel</button>
-			<span class="psw">Forgot <a href="#">password?</a></span>
+		<div class="form-login" style="background-color: #84A7A1">
+			<button type="reset" class="cancelbtn">Cancel</button>
+			
 		</div>
 
 	</form>
 
-
+	
 
 
 	@section Scripts {

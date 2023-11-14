@@ -1,16 +1,17 @@
 ﻿using EstevezGayosoRosanaTarea3.Database;
-using EstevezGayosoRosanaTarea3.Database.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EstevezGayosoRosanaTarea3.Controllers
+
 {
+    //creacion estudianteController con los action result para index y detalles y el routing correspondiente en cada caso
     public class EstudianteController : Controller
     {
-        private readonly InstitutoMontecasteloRepository _institutoMontecasteloRepository;
+        private readonly InstitutoMontecasteloManager _institutoMontecasteloManager;
 
         public EstudianteController(InstitutoMontecasteloContext context)
         {
-            _institutoMontecasteloRepository = new InstitutoMontecasteloRepository(context);
+            _institutoMontecasteloManager = new InstitutoMontecasteloManager(context);
         }
         [Route("/estudiante")]
         [Route("/estudiante/index")]
@@ -22,7 +23,7 @@ namespace EstevezGayosoRosanaTarea3.Controllers
                 // Redirigir al usuario a la página de inicio de sesión
                 return Redirect("~/login/logueate");
             }
-            var estudiantes = _institutoMontecasteloRepository.GetAllEstudiantes();
+            var estudiantes = _institutoMontecasteloManager.GetAllEstudiantes();
 
             return View(estudiantes);
         }
@@ -32,10 +33,10 @@ namespace EstevezGayosoRosanaTarea3.Controllers
             // Verificar si el usuario ha iniciado sesión
             if (!LoginController.IsUserLoggedIn)
             {
-                // Redirigir al usuario a la página de inicio de sesión
+                // Redirigir al usuario a la página de inicio de sesión si no ha iniciado sesion
                 return Redirect("~/login/logueate");
             }
-            var estudiante = _institutoMontecasteloRepository.GetEstudianteById(estudianteId);
+            var estudiante = _institutoMontecasteloManager.GetEstudianteById(estudianteId);
             return View(estudiante);
         }
     }

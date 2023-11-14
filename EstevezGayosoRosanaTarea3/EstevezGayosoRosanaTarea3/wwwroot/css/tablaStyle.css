@@ -1,0 +1,43 @@
+﻿* {
+    font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+}
+
+html {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.tabla {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    box-shadow: 0 35px 55px rgba(0,0,0,0.5);
+}
+
+    .tabla td, .tabla th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    .tabla:nth-child(even) {
+        background-color: #84A7A1;
+    }
+
+    .tabla tr:hover {
+        background-color: #ddd;
+    }
+
+    .tabla th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #1F6E8C;
+        color: white;
+    }
+
+    .tabla .montecastelo {
+        border-radius: 50%;
+    }
+

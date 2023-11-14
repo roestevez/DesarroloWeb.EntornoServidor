@@ -1,11 +1,12 @@
 ﻿using EstevezGayosoRosanaTarea3.Database.Models;
 
-namespace EstevezGayosoRosanaTarea3.Database.Repositories
+namespace EstevezGayosoRosanaTarea3.Database
 {
-    public class InstitutoMontecasteloRepository : IDisposable
+    //creo un institutoMontecasteloManager que gestiona las querys a la base de datos
+    public class InstitutoMontecasteloManager : IDisposable
     {
         private readonly InstitutoMontecasteloContext _context;
-        public InstitutoMontecasteloRepository(InstitutoMontecasteloContext context)
+        public InstitutoMontecasteloManager(InstitutoMontecasteloContext context)
         {
             _context = context;
         }
@@ -39,30 +40,17 @@ namespace EstevezGayosoRosanaTarea3.Database.Repositories
         {
             return _context.Profesores.FirstOrDefault(profesor => profesor.ProfesorId == id);
         }
-        //mostrar todos los login
-        public IEnumerable<Login> GetAllLogin()
+        //buscar usuario por username y password
+        public Login GetLoginByUser(string username, string password)
         {
-            return _context.Logins;
+            
+            return _context.Logins.FirstOrDefault(l => l.Username == username && l.Password == password); ;
         }
-        //mostrar login por id y asi mostrar detalles
-        public Login GetLoginById(int id)
-        {
-            return _context.Logins.FirstOrDefault(login => login.LoginId == id);
-        }
+
+
         
-        public void Delete(Login login)
-        {
-           
-            _context.Logins.Remove(login);
-            _context.SaveChanges();
-        }
 
-
-        public void Update()
-        {
-            _context.SaveChanges();
-        }
-
+       
 
         public void Dispose()
         {

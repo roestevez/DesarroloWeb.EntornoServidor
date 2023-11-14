@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EstevezGayosoRosanaTarea3.Controllers
 {
+    //creacion homeController con el action result para index y su routing
+
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -13,7 +15,9 @@ namespace EstevezGayosoRosanaTarea3.Controllers
         {
             _logger = logger;
         }
-        
+        [Route("/")]
+        [Route("/Home")]
+        [Route("/Home/Index")]
         public IActionResult Index()
         {
             // Verificar si el usuario ha iniciado sesión
@@ -30,10 +34,7 @@ namespace EstevezGayosoRosanaTarea3.Controllers
         
         
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+        
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

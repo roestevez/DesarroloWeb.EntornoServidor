@@ -1,21 +1,19 @@
 ﻿@model IEnumerable<EstevezGayosoRosanaTarea3.Database.Models.Profesor>
 
 @{
-	Layout = null;
+	ViewData["Title"] = "Profesor";
 }
-
 <!DOCTYPE html>
 
 <html>
 <head>
 	<meta name="viewport" content="width=device-width" />
 	<title>Index</title>
+	<link href="~/css/tablaStyle.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
-	<p>
-		<a asp-action="Create">Create New</a>
-	</p>
-	<table class="table">
+	
+	<table class="tabla">
 		<thead>
 			<tr>
 				<th>
@@ -50,9 +48,9 @@
 						@Html.DisplayFor(modelItem => item.Materia)
 					</td>
 					<td>
-						<a asp-action="Edit" asp-route-id="@item.ProfesorId">Edit</a> |
-						@Html.ActionLink("Detail", "VerProfesor", new { item.ProfesorId})|
-						<a asp-action="Delete" asp-route-id="@item.ProfesorId">Delete</a>
+						
+						@Html.ActionLink("Detail", "VerProfesor", new { item.ProfesorId})
+						
 					</td>
 				</tr>
 			}

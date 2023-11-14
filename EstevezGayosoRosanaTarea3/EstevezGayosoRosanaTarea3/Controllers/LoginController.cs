@@ -1,18 +1,19 @@
 ﻿using EstevezGayosoRosanaTarea3.Database;
-using EstevezGayosoRosanaTarea3.Database.Repositories;
-using Microsoft.AspNetCore.Mvc;
 using EstevezGayosoRosanaTarea3.Models;
+using Microsoft.AspNetCore.Mvc;
+
 
 
 namespace EstevezGayosoRosanaTarea3.Controllers
 {
+    //y el routing correspondiente en cada caso
     public class LoginController : Controller
     {
-        private readonly InstitutoMontecasteloRepository _institutoMontecasteloRepository;
+        private readonly InstitutoMontecasteloManager _institutoMontecasteloManager;
 
         public LoginController(InstitutoMontecasteloContext context)
         {
-            _institutoMontecasteloRepository = new InstitutoMontecasteloRepository(context);
+            _institutoMontecasteloManager = new InstitutoMontecasteloManager(context);
         }
         //declaramos la variable booleana para saber si el usuario esta logueado 
         public static bool IsUserLoggedIn = false;
@@ -20,35 +21,30 @@ namespace EstevezGayosoRosanaTarea3.Controllers
         
 
         [HttpGet]
-        [Route("/")]
+        [Route("/login")]
         [Route("/login/logueate")]
         public IActionResult Logueate()
         {
             return View();
         }
-
-        
         [HttpPost]
-        [Route("/")]
         [Route("/login/logueate")]
 
-        public IActionResult Logueate(LoginViewModel model)
+        public IActionResult Logueate(string username, string password)
         {
             if (ModelState.IsValid)
             {
-                // Buscar el usuario en la base de datos
-                var user = _institutoMontecasteloRepository.GetAllLogin().FirstOrDefault(l => l.Username == model.Username && l.Password == model.Password);
-
-                // Si el usuario existe, redirigir a la página de inicio
-                if (user != null)
+                var user = _institutoMontecasteloManager.GetLoginByUser(username,password);
+                 // Si el usuario existe, redirigir a la página de inicio
+                if ( user!= null)
                 {
                     //declaramos usuariologueado a true
-                    LoginController.IsUserLoggedIn = true;
+                    IsUserLoggedIn = true;
                     return Redirect("~/Home/Index");
                 }
 
                 // Si el usuario no existe, mostrar un mensaje de error
-                ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                return View("Error");
 
             }
 
@@ -56,6 +52,16 @@ namespace EstevezGayosoRosanaTarea3.Controllers
 
             return Redirect("~/login/logueate");
         }
+        //si el usuario cancela sesion es redirigido a la pagina de login
+        [Route("/login/deslogueate")]
+        [HttpGet]
+        public IActionResult Deslogueate()
+        {
+            IsUserLoggedIn = false;
+            return Redirect("~/login/logueate");
+
+        }
+
 
         
 

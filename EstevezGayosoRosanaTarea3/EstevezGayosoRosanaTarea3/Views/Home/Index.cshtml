@@ -1,8 +1,30 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<!DOCTYPE html>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<title>Index</title>
+	<link href="~/css/homeStyle.css"   type="text/css" rel="stylesheet" />
+</head>
+<body>
+	
+	<div class="body">
+		
+		<h1>Bienvenidos a Instituto Montecastelo Curso 23/24</h1>
+		<h4>Aqui podras encontrar toda la informacion necesaria para este curso<br /><br /></h4>
+			<div>
+               <img class="montecastelo" src="~/img/ciclos_formativos_montecastelo_logo.jpeg" alt="logoMontecastelo" class="avatar">
+            </div>
+		    <div class="enlaces">
+			<ul>
+			<li><a asp-controller="Asignatura" asp-action="Index">Asignaturas</a></li>
+			<li><a asp-controller="Profesor" asp-action="Index">Profesores</a></li>
+			<li><a asp-controller="Estudiante" asp-action="Index">Alumnos</a></li>
+			</ul>
+			</div>
+	</div>
+</body>
+</html>
