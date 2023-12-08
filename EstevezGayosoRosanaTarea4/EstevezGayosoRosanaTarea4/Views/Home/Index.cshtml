@@ -1,16 +1,29 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<head>
+    <link rel="stylesheet" href="~/css/HomeStyle.css">
+</head>
+<body>
 
-<div class="contenedor-flex">
-    <div class="flex-item">
-        <h1>CENTRO POKEMON</h1>
-        <li><a asp-controller="Pokemon" asp-action="Index">Lista Pokemon</a></li>
-        <li><a asp-controller="Pokemon" asp-action="Index">Generacion Equipo Aleatorio</a></li>
-        <li><a asp-controller="Pokemon" asp-action="Index">Mi Equipo</a></li>
-        <li><a asp-controller="Pokemon" asp-action="Index">Combate</a></li>
+    <div class="container">
+        <div class="row">
+           <h1 class="text-white" style="padding:50px; text-align:center">CENTRO POKEMON </h1>
+        
+       
+            <div class="btn-group" role="group" >
+                <button type="button" class="btn btn-light"><a asp-controller="Pokemon" asp-action="ListaPokemon">Lista Pokemon</a></button>
+                <button type="button" class="btn btn-light"><a asp-controller="Pokemon" asp-action="EquipoIndex">Equipos</a></button>
+                <button type="button" class="btn btn-light"><a asp-controller="Pokemon" asp-action="BatallaIndex">Batalla</a></button>
+            </div>
+            <div class="col-12">
+                <img src="~/img/combate.jpg"  class="img-fluid" />
 
+            </div>
+       
+        </div>  
 
     </div>
     
-</div>
+
+</body>

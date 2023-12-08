@@ -1,11 +1,12 @@
 using EstevezGayosoRosanaTarea4.Database.Models;
+using EstevezGayosoRosanaTarea4.Database.Repository;
 using EstevezGayosoRosanaTarea4.Repository;
-using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddSingleton(new Conexion(builder.Configuration.GetConnectionString("ConexionMontecastelo")));
 builder.Services.AddScoped<IPokemonRepository,PokemonRepository>();
+builder.Services.AddSingleton<IEquipoRepository, EquipoRepository>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

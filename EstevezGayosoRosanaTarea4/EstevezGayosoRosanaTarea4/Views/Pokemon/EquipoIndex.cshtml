@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "EquipoIndex";
+}
+<head>
+    <link rel="stylesheet" href="~/css/EquipoIndexStyle.css">
+</head>
+<body class="index">
+    <div class="container">
+        <div class="row">
+            <h1 class="text-white" style="padding:50px; text-align:center">EQUIPOS </h1>
+
+
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-light">@Html.ActionLink("Mi Equipo", "Equipo", new { tipoEquipo = "miequipo"  })</button>
+                <button type="button" class="btn btn-light">@Html.ActionLink("Equipo Aleatorio", "Equipo", new { tipoEquipo = "equipoaleatorio" })</button>
+                
+            </div>
+            <div class="col-12">
+                <img src="~/img/combate.jpg" class="img-fluid" />
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+
+
+
+

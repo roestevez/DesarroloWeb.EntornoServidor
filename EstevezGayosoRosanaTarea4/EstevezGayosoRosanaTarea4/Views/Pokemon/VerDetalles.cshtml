@@ -1,0 +1,142 @@
+﻿@model DetallesViewModel
+<head>
+    <link rel="stylesheet" href="~/css/DetallesStyle.css">
+</head>
+
+<div class="container">
+    <div class="row justify-content-center">
+       
+        @{
+            var imagenRuta = "/img/" + Model.Pokemon.numero_pokedex + ".png";
+
+        }
+
+        <div class="col-12" style="padding-top:30px;background-color:azure ;">
+            <img src="@imagenRuta" style="width:400px; class="img-fluid" />
+            <h1 style="text-align:center; padding:50px;  color:darkcyan">@Model.Pokemon.nombre</h1>
+        </div>
+            
+
+        <div class="col-4" style="background-color:darkcyan">
+            <h2 style="padding-top:50px;">Datos Personales</h2>
+            <p>Número Pokédex: @Model.Pokemon.numero_pokedex</p>
+
+            <p>
+                Tipo de Pokemon:  @foreach (var tipos in Model.Pokemon.Tipos)
+                {
+                   @tipos
+
+
+                }
+            </p>
+
+
+            <p>Peso: @Model.Pokemon.Peso</p>
+            <p>Altura: @Model.Pokemon.Altura</p>
+        </div>
+
+        <div class="col-4" style="background-color:darkcyan">
+            <h2 style="padding-top:50px;">Evoluciones</h2>
+                @if (Model.Evoluciones.Any())
+                {
+                    <div>
+
+                        <ul>
+                            @foreach (var evolucion in Model.Evoluciones)
+                            {
+                                <li>@evolucion</li>
+
+                            }
+                        </ul>
+                    </div>
+
+                }
+                else
+                {
+                    <li>Este Pokemon no tiene evoluciones</li>
+
+                }
+              
+      </div>
+        <div class="col-4" style="background-color:darkcyan">
+            <h2 style="padding-top:50px;">Involuciones</h2>
+
+            @if (Model.Involuciones.Any())
+            {
+                <div>
+
+                    <ul>
+                        @foreach (var involucion in Model.Involuciones)
+                        {
+                            <li>@involucion</li>
+                        }
+                    </ul>
+                </div>
+
+
+            }
+            else
+            {
+                <li>Este Pokemon no tiene involuciones</li>
+            }
+
+            
+
+        </div>
+      
+    
+    
+    
+    
+   
+
+    <div class="col-12" style="background-color:darkcyan">
+        <h2>Movimientos</h2>
+        <table class="table table-dark table-hover">
+            <thead>
+                <tr>
+                    <th>Movimiento</th>
+                    <th>Descripcion</th>
+                    <th>Potencia</th>
+                </tr>
+
+            </thead>
+            <tbody>
+            
+            
+                 @foreach (var movimiento in Model.Movimientos)
+               {
+                <tr>
+                <td>@movimiento.nombre </td>
+                <td>@movimiento.descripcion</td>
+                <td>@movimiento.potencia</td> 
+                </tr>
+                
+            
+               }
+            </tbody>
+
+            
+           
+
+        </table>
+            
+        </ul>
+    </div>
+
+    
+
+    <div class="col-12">
+        <form method="post" action="@Url.Action("AgregarAMiEquipo", "Pokemon")">
+            <input type="hidden" name="numero_pokedex" value="@Model.Pokemon.numero_pokedex" />
+                <input class="btn btn-light" type="submit" value="Añadir a Mi Equipo" />
+        </form>
+
+
+    </div>
+
+  </div>
+
+
+</div>
+

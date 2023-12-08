@@ -1,76 +1,113 @@
-﻿@model IEnumerable<EstevezGayosoRosanaTarea4.Database.Models.Pokemon>
+﻿@model ListaPokemonViewModel
 
 @{
     ViewData["Title"] = "Lista Pokemon";
+
 }
 
-<h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-@using (Html.BeginForm("GetFilteredPokemons", "Pokemon", FormMethod.Post))
+<form method="get" action="/Pokemon/GetFilteredPokemons">
 
-
-{
     <div>
-        <label>Tipo:</label>
-        @Html.TextBox("tipo")
+        <select class="form-select" name="Tipo">
+            <option selected>Selecciona un tipo</option>
+            @foreach (var tipo in Model.Tipos)
+            {
+                <option value="@tipo.id_tipo">@tipo.nombre</option>
+            }
+        </select>
     </div>
 
     <div>
-        <label>Peso:</label>
-        @Html.TextBox("peso")
+        <select class="form-select" name="Peso">
+            <option selected>Selecciona un peso</option>
+            @foreach (var peso in Model.Pesos)
+            {
+                <option value="@peso.ToString().Replace(",",".")">@peso.ToString().Replace(",",".")</option>
+            }
+        </select>
     </div>
 
     <div>
-        <label>Altura:</label>
-        @Html.TextBox("altura")
+        <select class="form-select" name="Altura">
+            <option selected>Selecciona una altura</option>
+            @foreach (var altura in Model.Alturas)
+            {
+                <option value="@altura.ToString().Replace(",",".")">@altura.ToString().Replace(",",".")</option>
+            }
+        </select>
     </div>
 
     <div>
-        <input type="submit" value="Filtrar" />
+        <input class="btn btn-dark btn-lg " type="submit" value="Filtrar" />
     </div>
-}
-<table class="table">
+</form>
+
+
+<table class="table table-dark table-hover">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.numero_pokedex)
+                @Html.DisplayNameFor(model => model.Pokemons.First().numero_pokedex)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.nombre)
+                imagen
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Peso)
+                @Html.DisplayNameFor(model => model.Pokemons.First().nombre)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Altura)
+                @Html.DisplayNameFor(model => model.Pokemons.First().Tipos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pokemons.First().Peso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pokemons.First().Altura)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.numero_pokedex)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Peso)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Altura)
-            </td>
-            <td>
-                @Html.ActionLink("Evoluciones o Involuciones", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Movimientos", "VerMovimiento", new { item.numero_pokedex}) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.Pokemons)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.numero_pokedex)
+                </td>
+                <td>
+                    @{
+                        var imagenRuta = "/img/" + item.numero_pokedex + ".png";
+                    }
+                    <img src="@imagenRuta" style="width:90px" />
+
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tipos)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Peso)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Altura)
+                </td>
+                <td>
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-light">@Html.ActionLink("Detalles", "VerDetalles", new { item.numero_pokedex })</button>
+                        <button type="button" class="btn btn-light">@Html.ActionLink("Mi Equipo", "Equipo", new { tipoEquipo = "miequipo"  })</button>
+                        
+                        
+                    </div>
+
+                    
+                    
+                    
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

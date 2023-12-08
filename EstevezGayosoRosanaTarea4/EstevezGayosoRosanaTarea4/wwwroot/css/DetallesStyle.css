@@ -1,0 +1,21 @@
+﻿body {
+    margin-bottom: 60px;
+}
+.btn-group {
+    margin-top: 20px;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    
+}
+    a {
+        text-decoration: none;
+    }
+
+li{
+    list-style:none;
+    margin:0;
+}
+img{
+    margin:0 auto;
+}

@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "BatallaIndex";
+}
+<body>
+    <div class="container">
+        <div class="row">
+            <h1 class="text-white" style="padding:50px; text-align:center"> BATALLA</h1>
+
+
+            <div class="btn-group" role="group">
+                
+                <form action="@Url.Action("EmpezarBatallaAleatoria")" method="post">
+                    <button class="btn btn-light" type="submit">Empezar Batalla aleatoria</button>
+                </form>
+                <form action="@Url.Action("EmpezarMiEquipoBatalla")" method="post">
+                    <button class="btn btn-light" type="submit">Empezar Batalla de mi Equipo</button>
+                </form>
+
+            </div>
+            <div class="col-12">
+                <img src="~/img/combate.jpg" class="img-fluid" />
+
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+

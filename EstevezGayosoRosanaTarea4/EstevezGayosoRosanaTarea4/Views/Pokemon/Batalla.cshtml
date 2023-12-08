@@ -1,0 +1,143 @@
+﻿@model BatallaViewModel
+@{
+
+	ViewData["Title"] = "Batalla";
+
+}
+<head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+	
+</head>
+
+
+@if (Model.Batalla.Combates.Any())
+{
+
+    <div class="container" style="margin-top:50px ">
+
+		<div class="row">
+
+
+			<h2 style="color:#437adb ; text-align:center ; background-color:azure;">@Model.Batalla.EquipoUno.nombre </h2>
+			@foreach (var item in Model.Batalla.EquipoUno.Pokemons)
+			{
+
+				<div class="col-2 border border-bottom-dark  " style="background-color:azure; padding-top:50px;padding-bottom:50px;">
+					
+					@{
+						var imagenRuta = "/img/" + item.numero_pokedex + ".png";
+					}
+					<img src=@imagenRuta style="width:90px;" />
+					@item.nombre
+					<br>
+					<br>
+					<div class="row">
+					  <div class="col-2" style="background-color:azure; padding-left:30px;">
+
+							<i class="fa-solid fa-angles-down fa-xl" style="color: #437adb;  line-height:normal"></i>
+						
+					  </div>
+					</div>
+				</div>
+			}
+
+		</div>
+		
+			
+		<div class="row">
+
+			
+			@foreach (var item in Model.Batalla.EquipoDos.Pokemons)
+			{
+
+				<div class="col-2 border  boder-left-dark border-bottom-0" style="background-color:azure ;padding-top:50px;padding-bottom:50px;">
+					@{
+						var imagenRuta = "/img/" + item.numero_pokedex + ".png";
+					}
+					<div class="row">
+						<div class="col-2" style="background-color:azure; padding-left:30px;">
+							
+					      <i class="fa-solid fa-angles-up fa-xl" style="color: #437adb;  line-height:normal"></i>
+
+						</div>
+					</div>
+					<img src=@imagenRuta style="width:90px;" />
+					@item.nombre
+					
+
+					
+					
+				</div>
+			}
+			<h2 style="color:#437adb ; text-align:center ; background-color:azure">@Model.Batalla.EquipoDos.nombre </h2>
+			
+
+		</div>
+		<h2> El Ganador de este combate es: </h2>
+		<div class="row">
+			
+			@foreach (var item in Model.Batalla.Combates)
+			{
+				<div class="col-2" style="padding-top:50px; padding-bottom: 50px; background-color:azure;">
+					@{
+						var imagenRuta = "/img/" + item.pokemonGanador.numero_pokedex + ".png";
+					}
+					<div class="col-2" style="background-color:azure; padding-left:30px;">
+						<i class="fa-solid fa-trophy fa-2xl" style="color: #437adb;  line-height:normal"></i>
+						
+					</div>
+					<img src=@imagenRuta style="width:90px;" />
+					@item.pokemonGanador.nombre
+				</div>
+			}
+
+		</div>
+		<h2>El equipo Ganador es:</h2>
+		<div class="row">
+			@if (Model.EquipoGanador != null)
+			{
+				<h2 style="color:#437adb ; text-align:center ; background-color:azure; padding:30px">@Model.EquipoGanador.nombre </h2>
+				@foreach (var item in Model.EquipoGanador.Pokemons)
+				{
+					<div class="col-2" style="padding-top:50px; padding-bottom: 50px; background-color:azure;">
+						@{
+							var imagenRuta = "/img/" + item.numero_pokedex + ".png";
+						}
+						<img src=@imagenRuta style="width:90px;" />
+						@item.nombre
+					</div>
+				}
+
+
+
+
+			}
+			else
+			{
+				<h1>No hay equipo ganador, se ha producido un empate</h1>
+			}
+
+
+
+		</div>
+	</div>
+}
+else
+{
+	<div class="alert alert-danger" role="alert">
+		No hay Pokemons en tu equipo, vuelve a la lista para añadir
+	</div>
+
+	<button class="btn btn-danger">
+		<a asp-controller="Pokemon" asp-action="ListaPokemon">Volver a lista de pokemon</a>
+		
+	</button>
+}
+	
+
+
+
+
+
+
+

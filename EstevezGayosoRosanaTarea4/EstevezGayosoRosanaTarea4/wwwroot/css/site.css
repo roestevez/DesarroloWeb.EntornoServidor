@@ -1,6 +1,17 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
+    font-family:'Global Monospace';
 }
+img{
+    display:flex;
+    flex-direction:row;
+    width:100%;
+}
+form,
+table{
+    padding:10px;
+}
+
 
 @media (min-width: 768px) {
   html {
@@ -8,11 +19,35 @@ html {
   }
 }
 
+body{
+    margin-top:50px;
+    background-color:black;
+}
 html {
   position: relative;
   min-height: 100%;
+  
 }
 
-body {
-  margin-bottom: 60px;
+
+h1,h2,h3,h4,h5,h6{
+    color:white;
 }
+p{
+    color:white;
+}
+li{
+    list-style:none;
+    color:white;
+}
+.btn-group {
+    margin-top: 20px;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    
+}
+a {
+    text-decoration: none;
+}
+
